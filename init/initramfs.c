@@ -603,6 +603,7 @@ static void __init clean_rootfs(void)
 }
 #endif
 
+#if 0
 static int __initdata do_skip_initramfs;
 
 static int __init skip_initramfs_param(char *str)
@@ -613,6 +614,7 @@ static int __init skip_initramfs_param(char *str)
 	return 1;
 }
 __setup("skip_initramfs", skip_initramfs_param);
+#endif
 
 #ifdef CONFIG_BLK_DEV_RAM
 static void __init populate_initrd_image(char *err)

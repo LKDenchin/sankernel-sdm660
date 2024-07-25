@@ -103,6 +103,9 @@
 		vddcx-supply = <&gdsc_gpu_cx>;
 		vdd-supply = <&gdsc_gpu_gx>;
 
+		/* Avoid L2PC on big cluster CPUs (CPU 4,5,6,7) */
+		qcom,l2pc-cpu-mask = <0x000000f0>;
+
 		/* Quirks */
 		qcom,gpu-quirk-dp2clockgating-disable;
 		qcom,gpu-quirk-lmloadkill-disable;
@@ -126,7 +129,7 @@
 
 			qcom,gpu-cx-ipeak@0 {
 				qcom,gpu-cx-ipeak = <&cx_ipeak_lm 1>;
-				qcom,gpu-cx-ipeak-freq = <700000000>;
+				qcom,gpu-cx-ipeak-freq = <750000000>;
 			};
 		};
 
@@ -692,3 +695,5 @@
 		};
 	};
 };
+
+#include "sdm660-gpu-oc.dtsi"
